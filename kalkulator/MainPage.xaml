@@ -1,0 +1,83 @@
+﻿<Page x:Name="konwersja"
+    x:Class="kalkulator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:kalkulator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="maingrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.2*"/>
+    		<RowDefinition Height="0.8*"/>
+    	</Grid.RowDefinitions>
+    	<TextBlock x:Name="title" Margin="0" TextWrapping="Wrap" Text="KONWERTER" FontSize="96" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE0139F" FontFamily="Chiller" SelectionHighlightColor="#FFE0139F"/>
+    	<Grid x:Name="gridokna" Grid.Row="1">
+    		<Grid.RowDefinitions>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    			<RowDefinition/>
+    		</Grid.RowDefinitions>
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="0.6*"/>
+    			<ColumnDefinition Width="0.4*"/>
+    		</Grid.ColumnDefinitions>
+    		<Grid x:Name="klawiatura" Grid.Column="1" Grid.RowSpan="5">
+    			<Grid.RowDefinitions>
+    				<RowDefinition/>
+    				<RowDefinition/>
+    				<RowDefinition/>
+    				<RowDefinition/>
+    				<RowDefinition/>
+    			</Grid.RowDefinitions>
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition/>
+    				<ColumnDefinition/>
+    				<ColumnDefinition/>
+    			</Grid.ColumnDefinitions>
+    			<Button x:Name="zero" Content="0" HorizontalAlignment="Stretch" Margin="0" Grid.Row="4" VerticalAlignment="Stretch" FontSize="64" FontWeight="Bold" FontFamily="Chiller" Grid.ColumnSpan="2" BorderBrush="#FFCB1591" Foreground="#FFCB1591" Click="liczba_Click"/>
+                <Button x:Name="five" Content="5" HorizontalAlignment="Stretch" Margin="0" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="1" FontSize="64" FontFamily="Chiller" FontWeight="Bold" Foreground="#FFE0139F" BorderBrush="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="coma" Content="," HorizontalAlignment="Stretch" Margin="0" Grid.Row="4" VerticalAlignment="Stretch" Grid.Column="2" FontSize="64" FontFamily="Chiller" FontWeight="Bold" Foreground="#FFCB1591" BorderBrush="#FFCB1591" Click="liczba_Click"/>
+                <Button x:Name="one" Content="1" HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" FontFamily="Chiller" FontSize="64" Foreground="#FFE0139F" BorderBrush="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="two" Content="2" HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" Grid.Column="1" FontWeight="SemiBold" FontFamily="Chiller" FontSize="64" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="six" Content="6" HorizontalAlignment="Stretch" Margin="0" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="2" FontFamily="Chiller" FontSize="64" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="seven" Content="7" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Grid.Row="1" FontFamily="Chiller" FontSize="64" FontWeight="Bold" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="four" Content="4" HorizontalAlignment="Stretch" Margin="0" Grid.Row="2" VerticalAlignment="Stretch" FontFamily="Chiller" FontSize="64" FontWeight="Bold" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="three" Content="3" HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" Grid.Column="2" FontFamily="Chiller" FontSize="64" FontWeight="Bold" Foreground="#FFCB1591" BorderBrush="#FFCB1591" Click="liczba_Click"/>
+                <Button x:Name="eight" Content="8" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" FontFamily="Chiller" FontSize="64" FontWeight="Bold" Foreground="#FFE0139F" BorderBrush="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="nien" Content="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="2" FontFamily="Chiller" FontSize="64" FontWeight="Bold" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="liczba_Click"/>
+                <Button x:Name="Cancel" Content="X" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" FontFamily="Chiller" FontSize="96" BorderBrush="#FFE0139F" Foreground="#FFE0139F" Click="Cancel_Click"/>
+                <Button x:Name="CE" Content="CE" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Chiller" FontSize="64" FontWeight="SemiBold" Grid.ColumnSpan="2" Padding="0" Foreground="#FFE0139F" BorderBrush="#FFE0139F" Click="CE_Click" />
+    		</Grid>
+    		<TextBlock x:Name="pokonwersji" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="miara po konwersji" SelectionHighlightColor="#00CB1591" Foreground="#FFE0139F" FontFamily="Chiller" FontSize="96"/>
+    		<ComboBox x:Name="jednostka" FontFamily="Chiller" FontSize="64" Foreground="Black" BorderBrush="#FFF6F6F6" Background="#FFE0139F">
+    			<ComboBoxItem x:Name="mm" Content="milimetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="cm" Content="centymetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="dcm" Content="decymetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="metr" Content="metr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="km" Content="kilometr" RequestedTheme="Light" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="cal" Content="cal" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="stopa" Content="stopa" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="jard" Content="jard" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="mila" Content="mila" HorizontalContentAlignment="Center" Padding="0"/>
+    		</ComboBox>
+    		<TextBlock x:Name="dokonwersji" Margin="0" Grid.Row="1" TextWrapping="Wrap" SelectionHighlightColor="#00CB1591" Foreground="#FFE0139F" FontFamily="Chiller" FontSize="96"/>
+    		<ComboBox x:Name="jednostka_zmiana" FontFamily="Chiller" FontSize="64" Foreground="Black" BorderBrush="#FFF6F6F6" Background="#FFE0139F" Grid.Row="2">
+    			<ComboBoxItem x:Name="mm1" Content="milimetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="cm1" Content="centymetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="dcm1" Content="decymetr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="metr1" Content="metr" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="km1" Content="kilometr" RequestedTheme="Light" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="cal1" Content="Cal" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="stopa1" Content="stopa" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="jard1" Content="jard" HorizontalContentAlignment="Center" Padding="0"/>
+    			<ComboBoxItem x:Name="mila1" Content="mila" HorizontalContentAlignment="Center" Padding="0"/>
+    		</ComboBox>
+    		<Button x:Name="konwertuj" Content="Konwertuj" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="4" FontFamily="Chiller" FontSize="96" BorderBrush="#FFE0139F" Foreground="#FF1D1D1D" Background="#FFE0139F" Click="konwertuj_Click"/>
+    	</Grid>
+
+    </Grid>
+</Page>
